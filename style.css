@@ -1,23 +1,39 @@
 body {
   margin: 0;
+  font: 20px 'Open Sans Hebrew'; /* !! add webfont !! */
   background-color: #E8EDDF;
+  box-sizing: border-box;
 }
 
 .container {
   display: flex;
+  flex-wrap: wrap;
   margin: 10px;
 }
 
 .text {
+  height: 90vh;
+  padding: 0 1em;
+  margin: 15px;
   flex: 1 1 18.75em;
+  border-radius: 5px;
 }
 
 #input {
+  padding-top: 1em;
   color: inherit;
   font: inherit;
-  margin: 0;
+  /*font-family: 'Courier New', Consolas, monaco, monospace;*/
+  border: none;
+  resize: none;
+}
+
+#input:focus {
+  outline: 0;
+  box-shadow: 0 0 1pt 2pt #7193AB;
 }
 
 #output {
-  border: 1px solid #2daa9e;
+  overflow-wrap: break-word;
+  background-color: #fff;
 }
