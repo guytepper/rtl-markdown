@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+  background-color: #E8EDDF;
+}
+
+.container {
+  display: flex;
+  margin: 10px;
+}
+
+.text {
+  flex: 1 1 18.75em;
+}
+
+#input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+#output {
+  border: 1px solid #2daa9e;
+}
