@@ -3,14 +3,18 @@ var view = (function view() {
       output = document.getElementById('output'),
       html;
 
+  // Converts the input's value to Markdown
+  // Returns the formatted html
   function setOutput(input) {
     html = converter.convert(input.value);
     output.innerHTML = html;
   }
 
+  // Attaches Event Listeners
   function attachListeners() {
+
+    // Refreshes the output on every key the user presses
     input.addEventListener('keyup', function() {
-      console.log('Key up.');
       setOutput(input);
     })
   }
@@ -27,6 +31,7 @@ var view = (function view() {
 var converter = (function converter(showdown) {
     var showdown = new showdown.Converter();
 
+    // Converts the input to Markdown using showdown.js
     function convert(input) {
       html = showdown.makeHtml(input);
       return html;
@@ -41,6 +46,7 @@ var converter = (function converter(showdown) {
 })(showdown);
 
 var app = (function() {
+
   function init() {
     view.attachListeners();
   }
