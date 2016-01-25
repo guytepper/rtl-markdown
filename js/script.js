@@ -47,6 +47,8 @@ var converter = (function converter(showdown) {
 
 var app = (function() {
 
+  // var openSans = new FontFace('Open Sans Hebrew', "u")
+
   function init() {
     view.attachListeners();
   }
@@ -59,3 +61,13 @@ var app = (function() {
 })();
 
 app.init();
+
+// TODO: make it load the font correctly
+// right now it says the font loaded if though it doesn't exist
+document.fonts.load("50px NotWorkingCorrectly")
+              .then(function() {
+                console.log("font loaded");
+              })
+              .catch(function() {
+                console.log("font failed to load")
+              });

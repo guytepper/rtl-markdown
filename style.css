@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font: 20px 'Open Sans Hebrew'; /* !! add webfont !! */
+  /*font: 20px 'Open Sans Hebrew'; */
   -webkit-font-smoothing: antialiased;
   background-color: #2F6DA0;
 }
