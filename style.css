@@ -1,20 +1,28 @@
 body {
   margin: 0;
   font: 20px 'Open Sans Hebrew'; /* !! add webfont !! */
-  background-color: #E8EDDF;
-  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  background-color: #2F6DA0;
+}
+
+.site-title {
+  height: 10vh;
+  margin: 0;
+  text-align: center;
+  line-height: 1.6;
+  color: #fff;
 }
 
 .container {
   display: flex;
+  height: 88vh;
   flex-wrap: wrap;
-  margin: 10px;
 }
 
 .text {
-  height: 90vh;
+  box-sizing: border-box;
   padding: 0 1em;
-  margin: 15px;
+  margin: 0 0.75em;
   flex: 1 1 9em;
   border-radius: 5px;
 }
@@ -33,6 +41,16 @@ body {
 }
 
 #output {
-  overflow-wrap: break-word;
+  overflow: auto;
   background-color: #fff;
+}
+
+.social-links {
+  display: flex;
+  margin: 1.75em 0;
+  justify-content: center;
+}
+
+.social-links__img {
+  width: 2.5em;
 }
