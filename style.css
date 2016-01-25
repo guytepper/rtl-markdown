@@ -15,7 +15,7 @@ body {
   height: 90vh;
   padding: 0 1em;
   margin: 15px;
-  flex: 1 1 18.75em;
+  flex: 1 1 9em;
   border-radius: 5px;
 }
 
@@ -23,7 +23,6 @@ body {
   padding-top: 1em;
   color: inherit;
   font: inherit;
-  /*font-family: 'Courier New', Consolas, monaco, monospace;*/
   border: none;
   resize: none;
 }
