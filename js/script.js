@@ -29,19 +29,55 @@ var view = (function view() {
 })();
 
 var converter = (function converter(showdown) {
-    var showdown = new showdown.Converter();
+  // Enables to write left-to-right content between <%ltr%> & <%endltr%> tags
+  showdown.extension('ltr', function() {
+    var matches = [];
+    return [
+        {
+            type: 'lang',
+            regex: /<%ltr%>([^]+?)<%endltr%>/gi,
+            replace: function(s, match) {
+                matches.push(match); // pushes original content
+                var n = matches.length - 1;
+                // returns unique value to be replaced with original content
+                return '%PLACEHOLDER' + n + '%';
+            }
+        },
+        {
+            type: 'output',
+            filter: function (text) {
+                for (var i=0; i< matches.length; ++i) {
+                    // generates the unique value
+                    var pat = '%PLACEHOLDER' + i + '%';
+                    // re renders content -- to refactor?
+                    matches[i] = new showdown.Converter().makeHtml(matches[i]);
+                    // wraps content to make it left-to-right
+                    var content = '<div class="ltr">' + matches[i] + '</div>';
+                    text = text.replace(new RegExp(pat, 'gi'), content);
+                }
 
-    // Converts the input to Markdown using showdown.js
-    function convert(input) {
-      html = showdown.makeHtml(input);
-      return html;
-    }
+                // resets array
+                matches = [];
+                return text;
+              }
+            }
+        ]
+    });
 
-    var converterAPI = {
-      convert: convert,
-    };
+  var markdown = new showdown.Converter({ extensions: ['ltr'] });
 
-    return converterAPI;
+
+  // Converts the input to Markdown using showdown.js
+  function convert(input) {
+    html = markdown.makeHtml(input);
+    return html;
+  }
+
+  var converterAPI = {
+    convert: convert,
+  };
+
+  return converterAPI;
 
 })(showdown);
 
