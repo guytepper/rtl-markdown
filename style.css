@@ -78,7 +78,7 @@ body {
 .text {
   box-sizing: border-box;
   padding: 0 1em;
-  margin: 0 0.75em;
+  margin: .25em .75em 0;
   flex: 1 1 9em;
   border-radius: 5px;
 }
